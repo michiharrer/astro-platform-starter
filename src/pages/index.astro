@@ -1,51 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const explainer = `
-Wir bieten Ihnen umfassendes kaufmännisches Projektmanagement im internationalen Pipelinebau und auf Großbaustellen in Europa.
-
-Unser Fokus liegt auf:
-- Kosten- und Budgetkontrolle
-- Rechnungsprüfung & Vertragsmanagement
-- Controlling & Berichtswesen
-- Koordination kaufmännischer Abläufe
-
-Mit Erfahrung aus internationalen Projekten sorgen wir für transparente, effiziente und rechtssichere Abläufe.
-`;
 ---
 
+<style>
+  body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+  }
+  .logo {
+    display: block;
+    margin: 0 auto 2rem;
+    max-width: 300px;
+  }
+  h1, h2 {
+    text-align: center;
+    color: #002855;
+  }
+  section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 6px;
+  }
+  form input, form textarea, form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  form button {
+    background-color: #002855;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  form button:hover {
+    background-color: #0055aa;
+  }
+</style>
+
 <Layout title="Harrer Commercial Projectmanagement GmbH">
-    <main style="max-width:960px;margin:0 auto;padding:40px 20px;font-family:Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#333;background-color:#f9f9f9;">
+  <div class="container">
+    <!-- Logo -->
+    <img src="/Firmenlogo.JPG" alt="Harrer Logo" class="logo" />
 
-        <!-- Header -->
-        <header style="text-align:center;margin-bottom:40px;">
-            <h1 style="font-size:2.5rem;margin:0;color:#004080;">
-                Harrer Commercial Projectmanagement GmbH
-            </h1>
-            <p style="font-size:1.1rem;color:#555;">
-                Ihr Partner für kaufmännisches Projektmanagement im internationalen Pipelinebau
-            </p>
-        </header>
+    <!-- Leistungen -->
+    <section>
+      <h2>Unsere Leistungen</h2>
+      <p>Wir bieten umfassendes kaufmännisches Projektmanagement im internationalen Pipelinebau und auf Großbaustellen in Europa.</p>
+      <ul>
+        <li>Kosten- und Budgetkontrolle</li>
+        <li>Rechnungsprüfung & Vertragsmanagement</li>
+        <li>Controlling & Berichtswesen</li>
+        <li>Koordination kaufmännischer Abläufe</li>
+      </ul>
+    </section>
 
-        <!-- Leistungen -->
-        <section style="background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:32px;">
-            <h2 style="font-size:1.5rem;margin-top:0;color:#004080;">Unsere Leistungen</h2>
-            <div style="margin-top:12px;white-space:pre-line;">{explainer}</div>
-        </section>
+    <!-- Kontaktformular -->
+    <section>
+      <h2>Kontakt</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="Ihr Name" required />
+        <input type="email" name="email" placeholder="Ihre E-Mail" required />
+        <textarea name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+        <button type="submit">Nachricht senden</button>
+      </form>
+      <p>Oder direkt per E-Mail: <a href="mailto:michael.harrer@hotmail.com">michael.harrer@hotmail.com</a></p>
+    </section>
 
-        <!-- Kontakt -->
-        <section style="background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
-            <h2 style="font-size:1.5rem;margin-top:0;color:#004080;">Kontakt</h2>
-            <p style="margin:0;">
-                📧 E-Mail: <a href="mailto:office@harrer-gmbh.com" style="color:#004080;text-decoration:none;">office@harrer-gmbh.com</a>
-            </p>
-            <p style="margin:4px 0 0;">📍 Sitz: Österreich · Einsätze EU-weit</p>
-        </section>
+    <!-- Impressum -->
+    <section>
+      <h2>Impressum</h2>
+      <p><strong>Harrer Commercial Projectmanagement GmbH</strong><br />
+      Franz Hinterleitner Gasse 35-37/18<br />
+      2201 Gerasdorf, Österreich<br />
+      FN 654049 m<br />
+      Landesgericht Korneuburg<br />
+      Geschäftsführer: Michael Harrer<br />
+      Gesellschaftsform: GmbH<br />
+      Kapital: 10.000 EUR<br />
+      Geschäftszweig: Kaufmännisches Projektmanagement<br />
+      EUID: ATBRA.654049-000</p>
+    </section>
 
-        <!-- Footer -->
-        <footer style="text-align:center;margin-top:40px;font-size:.9rem;color:#777;">
-            © {new Date().getFullYear()} Harrer Commercial Projectmanagement GmbH – Alle Rechte vorbehalten
-        </footer>
-
-    </main>
+    <footer style="text-align:center; margin-top:2rem;">
+      &copy; 2025 Harrer Commercial Projectmanagement GmbH – Alle Rechte vorbehalten
+    </footer>
+  </div>
 </Layout>
