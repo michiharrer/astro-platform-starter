@@ -2,60 +2,83 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<style>
-  body {
-    background-color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem;
-  }
-  .logo {
-    display: block;
-    margin: 0 auto 2rem;
-    max-width: 300px;
-  }
-  h1, h2 {
-    text-align: center;
-    color: #002855;
-  }
-  section {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 6px;
-  }
-  form input, form textarea, form button {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  form button {
-    background-color: #002855;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  form button:hover {
-    background-color: #0055aa;
-  }
-</style>
-
 <Layout title="Harrer Commercial Projectmanagement GmbH">
+  <style>
+    body {
+      background-color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 2rem;
+      max-width: 300px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #002855;
+    }
+    section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+    form {
+      display: grid;
+      gap: 12px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font: inherit;
+    }
+    button {
+      background-color: #002855;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background-color: #0055aa;
+    }
+    .hint {
+      font-size: 0.85rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+
   <div class="container">
     <!-- Logo -->
     <img src="/Firmenlogo.JPG" alt="Harrer Logo" class="logo" />
 
+    <!-- Firmenname -->
+    <h1>Harrer Commercial Projectmanagement GmbH</h1>
+    <p style="text-align:center;max-width:600px;margin:0 auto 2rem;color:#555;">
+      Kaufmännisches Projektmanagement für Großprojekte im Pipelinebau und internationale Bauvorhaben.
+    </p>
+
     <!-- Leistungen -->
     <section>
       <h2>Unsere Leistungen</h2>
-      <p>Wir bieten umfassendes kaufmännisches Projektmanagement im internationalen Pipelinebau und auf Großbaustellen in Europa.</p>
       <ul>
         <li>Kosten- und Budgetkontrolle</li>
         <li>Rechnungsprüfung & Vertragsmanagement</li>
@@ -65,34 +88,62 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Kontaktformular -->
-    <section>
+    <section id="kontakt">
       <h2>Kontakt</h2>
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="text" name="name" placeholder="Ihr Name" required />
-        <input type="email" name="email" placeholder="Ihre E-Mail" required />
-        <textarea name="message" rows="5" placeholder="Ihre Nachricht" required></textarea>
+      <form
+        name="Kontakt"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/danke"
+      >
+        <!-- notwendig für Netlify Forms -->
+        <input type="hidden" name="form-name" value="Kontakt" />
+        <p class="hidden">
+          <label>Bot: <input name="bot-field" /></label>
+        </p>
+
+        <label>
+          Ihr Name*
+          <input type="text" name="name" required />
+        </label>
+
+        <label>
+          Ihre E-Mail*
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          Nachricht*
+          <textarea name="nachricht" rows="6" required></textarea>
+        </label>
+
         <button type="submit">Nachricht senden</button>
+        <small class="hint">
+          Mit dem Absenden akzeptieren Sie die Verarbeitung Ihrer Angaben zur Beantwortung der Anfrage.
+          <a href="/impressum">Impressum/Datenschutz</a>
+        </small>
       </form>
-      <p>Oder direkt per E-Mail: <a href="mailto:michael.harrer@hotmail.com">michael.harrer@hotmail.com</a></p>
+      <p style="margin-top:1rem;">
+        Oder direkt per E-Mail: <a href="mailto:michael.harrer@hotmail.com">michael.harrer@hotmail.com</a>
+      </p>
     </section>
 
-    <!-- Impressum -->
+    <!-- Impressum-Auszug -->
     <section>
       <h2>Impressum</h2>
       <p><strong>Harrer Commercial Projectmanagement GmbH</strong><br />
       Franz Hinterleitner Gasse 35-37/18<br />
       2201 Gerasdorf, Österreich<br />
-      FN 654049 m<br />
-      Landesgericht Korneuburg<br />
+      FN 654049 m · Landesgericht Korneuburg<br />
       Geschäftsführer: Michael Harrer<br />
-      Gesellschaftsform: GmbH<br />
-      Kapital: 10.000 EUR<br />
+      Gesellschaftsform: GmbH · Kapital: 10.000 EUR<br />
       Geschäftszweig: Kaufmännisches Projektmanagement<br />
       EUID: ATBRA.654049-000</p>
     </section>
 
-    <footer style="text-align:center; margin-top:2rem;">
-      &copy; 2025 Harrer Commercial Projectmanagement GmbH – Alle Rechte vorbehalten
+    <footer>
+      © {new Date().getFullYear()} Harrer Commercial Projectmanagement GmbH – Alle Rechte vorbehalten
     </footer>
   </div>
 </Layout>
