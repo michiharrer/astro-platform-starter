@@ -1,21 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
 
 const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
+Wir bieten Ihnen umfassendes kaufmännisches Projektmanagement im internationalen Pipelinebau und auf Großbaustellen in Europa.
 
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
+Unser Fokus liegt auf:
+- Kosten- und Budgetkontrolle
+- Rechnungsprüfung & Vertragsmanagement
+- Controlling & Berichtswesen
+- Koordination kaufmännischer Abläufe
+
+Mit Erfahrung aus internationalen Projekten sorgen wir für transparente, effiziente und rechtssichere Abläufe.
 `;
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="Harrer Commercial Projectmanagement GmbH">
+    <main style="max-width:960px;margin:0 auto;padding:40px 20px;font-family:Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#333;background-color:#f9f9f9;">
+
+        <!-- Header -->
+        <header style="text-align:center;margin-bottom:40px;">
+            <h1 style="font-size:2.5rem;margin:0;color:#004080;">
+                Harrer Commercial Projectmanagement GmbH
+            </h1>
+            <p style="font-size:1.1rem;color:#555;">
+                Ihr Partner für kaufmännisches Projektmanagement im internationalen Pipelinebau
+            </p>
+        </header>
+
+        <!-- Leistungen -->
+        <section style="background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);margin-bottom:32px;">
+            <h2 style="font-size:1.5rem;margin-top:0;color:#004080;">Unsere Leistungen</h2>
+            <div style="margin-top:12px;white-space:pre-line;">{explainer}</div>
+        </section>
+
+        <!-- Kontakt -->
+        <section style="background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <h2 style="font-size:1.5rem;margin-top:0;color:#004080;">Kontakt</h2>
+            <p style="margin:0;">
+                📧 E-Mail: <a href="mailto:office@harrer-gmbh.com" style="color:#004080;text-decoration:none;">office@harrer-gmbh.com</a>
+            </p>
+            <p style="margin:4px 0 0;">📍 Sitz: Österreich · Einsätze EU-weit</p>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align:center;margin-top:40px;font-size:.9rem;color:#777;">
+            © {new Date().getFullYear()} Harrer Commercial Projectmanagement GmbH – Alle Rechte vorbehalten
+        </footer>
+
+    </main>
 </Layout>
